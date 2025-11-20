@@ -1,56 +1,56 @@
-// const { MongoClient } = require('mongodb');
+const { MongoClient } = require('mongodb');
 
-// // or as an es module:
+// or as an es module:
 
-// // import { MongoClient } from 'mongodb'
+// import { MongoClient } from 'mongodb'
 
 var data = require("./data.js").data;
 
-console.log(data)
 
 
 
-// // Connection URL
+// Connection URL
 
-// const url = 'mongodb://localhost:27017';
+const url = 'mongodb://localhost:27017';
 
-// const client = new MongoClient(url);
-
-
-// // Database Name
-
-// const dbName = 'test2024';
+const client = new MongoClient(url);
 
 
-// async function main() {
+// Database Name
 
-//   // Use connect method to connect to the server
-
-//   await client.connect();
-
-//   console.log('Connected successfully to server');
-
-//   const db = client.db(dbName);
-
-//   const collection = db.collection('documents');
+const dbName = 'plane2025';
 
 
-//   // the following code examples can be pasted here...
+async function main() {
 
-//   const insertResult = await collection.insertMany([{ a: 1 }, { a: 2 }, { a: 3 }]);
+ // Use connect method to connect to the server
 
-//   console.log('Inserted documents =>', insertResult);
+ await client.connect();
+
+ console.log('Connected successfully to server');
+
+ const db = client.db(dbName);
+
+ const collection = db.collection('plane');
 
 
-//   return 'done.';
+ // the following code examples can be pasted here...
 
-// }
+ const insertResult = await collection.insertMany(data);
+
+ console.log('Inserted documents =>', insertResult);
 
 
-// main()
+ return 'done.';
 
-//   .then(console.log)
+}
 
-//   .catch(console.error)
 
-//   .finally(() => client.close());
+main()
+
+ .then(console.log)
+
+ .catch(console.error)
+
+ .finally(() => client.close());
+
