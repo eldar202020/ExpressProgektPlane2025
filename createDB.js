@@ -40,7 +40,6 @@ async function main() {
 
  console.log('Inserted documents =>', insertResult);
 
-
  return 'done.';
 
 }
@@ -51,6 +50,4 @@ main()
  .then(console.log)
 
  .catch(console.error)
-
  .finally(() => client.close());
-
