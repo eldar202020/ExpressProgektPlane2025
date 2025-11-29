@@ -1,7 +1,15 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/testMongoose2024');
 
-const Plane = mongoose.model('Plane', { name: String });
+mongoose.connect('mongodb://127.0.0.1:27017/testMongoose2025');
 
-var planes = new Plane({ name: 'privat' });
-planes.save().then(() => console.log('fly'));
+
+var Plane = require('./models/plane.js').Plane
+
+
+var plane = new Plane({
+
+   title: "Стратегическая",
+   nick: "Strateg",
+
+})
+plane.save();
