@@ -1,7 +1,16 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://127.0.0.1:27017/testMongoose2024');
 
-const Plane = mongoose.model('Plane', { name: String });
+var schema = mongoose.Schema({ name: String })
+schema.methods.bah = function(){
 
-var planes = new Plane({ name: 'privat' });
-planes.save().then(() => console.log('fly'));
+   console.log(this.name + "сделал вииииииу, бах")
+
+}
+const Plane = mongoose.model('Plane', schema);
+
+const fly = new Plane({ name: 'starateg plane' });
+
+fly.save().then(() => fly.bah());
+
+
