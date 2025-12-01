@@ -7,9 +7,7 @@ var Plane = require('./models/plane.js').Plane
 
 
 var plane = new Plane({
-
    title: "Стратегическая",
-   nick: "Strateg",
-
+   nick: "strateg",
 })
 plane.save();
