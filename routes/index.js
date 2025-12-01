@@ -31,9 +31,16 @@ router.post("/logreg", async function (req, res, next) {
       req.session.user_id = foundUser._id;
       res.redirect("/");
     } else {
-       res.render('logreg',{title: 'Вход', error: 'Пароль не верный'});
+      res.render("logreg", { title: "Вход", error: "Пароль не верный" });
     }
   }
+});
+/* POST logout. */
+
+router.post("/logout", function (req, res, next) {
+  req.session.destroy();
+  res.locals.user = null;
+  res.redirect("/");
 });
 
 module.exports = router;
