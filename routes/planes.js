@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var Plane = require('../models/plane').Plane;
-router.get("/:nick", async function(req, res, next) {
+var checkAuth = require("../middlewares/checkAuth.js");
+router.get("/:nick", checkAuth , async function(req, res, next) {
 
    var planes = await Plane.find({nick: req.params.nick});
 
