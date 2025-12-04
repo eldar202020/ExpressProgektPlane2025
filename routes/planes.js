@@ -9,6 +9,8 @@ router.get("/:nick", checkAuth , async function(req, res, next) {
    console.log(planes)
    if(!planes.length) return next(new Error("Нет такого вида самолета"))
        var plane = planes[0];
+    console.log('_______________________')
+    console.log(plane.avatar)
        res.render('plane', {
            title: plane.title,
            picture: plane.avatar,
